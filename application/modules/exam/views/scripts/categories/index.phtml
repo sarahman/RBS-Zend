@@ -1,0 +1,71 @@
+
+    <h1><a href="/exam/categories">Categories</a></h1>
+
+    <div class="well">
+        <p><strong>Welcome!</strong> View the categories.</p>
+    </div>
+
+    <div style="float:right">
+        <a class="btn success" data-controls-modal="question-modal" data-backdrop="static">Add Category</a>
+    </div>
+
+    <table id="draft-exams" class="zebra-striped">
+
+        <thead>
+            <tr>
+                <th width="10%">Serial</th>
+                <th>Title</th>
+                <th width="14%">Last Modified</th>
+                <th width="12%">&nbsp;</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            <tr>
+                <td>1</td>
+                <td>MCQ</td>
+                <td class="centered">20th Oct, 2011</td>
+                <td class="centered">
+                    <button class="btn">Edit</button>
+                    <button class="btn danger">Delete</button>
+                </td>
+            </tr>
+
+            <tr>
+                <td>2</td>
+                <td>Verbal</td>
+                <td class="centered">20th Nov, 2011</td>
+                <td class="centered">
+                    <button class="btn">Edit</button>
+                    <button class="btn danger">Delete</button>
+                </td>
+            </tr>
+
+            <tr>
+                <td>3</td>
+                <td>Short Question</td>
+                <td class="centered">10th Oct, 2011</td>
+                <td class="centered">
+                    <button class="btn">Edit</button>
+                    <button class="btn danger">Delete</button>
+                </td>
+            </tr>
+
+        </tbody>
+
+    </table>
+
+    <div id="question-modal" class="modal hide fade"></div>
+
+    <script type="text/javascript">
+        $(function(){
+            $.ajax({
+                url: '/exam/categories/add',
+                type: 'POST',
+                success: function(data){
+                    $('#question-modal').html(data);
+                }
+            });
+        });
+    </script>

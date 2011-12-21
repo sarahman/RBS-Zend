@@ -1,0 +1,157 @@
+
+        <h1>New Exam Plan</h1>
+
+        <div class="modal-body">
+
+            <form action="" method="POST" class="form-stacked">
+
+                <fieldset>
+
+                    <div class="clearfix">
+                        <label for="xlInput">Title</label>
+
+                        <div class="input">
+                            <input class="large" id="xlInput" name="xlInput" size="30" type="text" value=""/>
+                        </div>
+                    </div>
+                    <!-- /clearfix -->
+
+                    <div class="clearfix">
+                        <label for="start_date">Start Date</label>
+                        <div class="input">
+                            <input type="text" class="span2" id="start_date" name="exam_code" />
+                        </div>
+                    </div><!-- /clearfix -->
+
+                    <div class="clearfix">
+                        <label for="end_date">End Date</label>
+                        <div class="input">
+                            <input type="text" class="span2" id="end_date" name="exam_code" />
+                        </div>
+                    </div><!-- /clearfix -->
+
+                    <div class="clearfix">
+                        <label for="xlInput" style="float: left;margin-top: 10px;">Exams</label>
+
+                        <div style="float:right">
+                            <a class="btn success" data-controls-modal="exam-modal" data-backdrop="static">Add Exam</a>
+                        </div>
+
+                        <table id="draft-exams" class="zebra-striped"style="margin-top: 10px;">
+                            <thead>
+                                <tr>
+                                    <th width="10%">Serial</th>
+                                    <th>Name</th>
+                                    <th width="14%">Concentration</th>
+                                    <th width="12%">&nbsp;</th>
+                                </tr>
+                            </thead>
+
+                            <tbody id="exam-records">
+                                <tr id="no-record">
+                                    <td colspan="4" class="centered">No Exam has been created.</td>
+                                </tr>
+                            </tbody>
+
+                        </table>
+
+                        <div style="float: right">
+                            <input type="submit" class="btn primary" value="Save" />
+                            <a href="/exam/exams" class="btn" id="">Cancel</a>
+                        </div>
+                    </div>
+                    <!-- /clearfix -->
+
+                </fieldset>
+
+            </form>
+        </div>
+
+        <div id="exam-modal" class="modal hide fade">
+
+            <div class="modal-header">
+                <a href="#" class="close" id="close-form">x</a>
+                <h3>Add Exam</h3>
+            </div>
+
+            <div class="modal-body">
+
+                <form action="" method="POST" class="form-stacked">
+
+                    <fieldset>
+
+                        <div class="clearfix">
+                            <label for="exam_name">Name: </label>
+
+                            <div class="input">
+                                <input class="large" id="exam_name" name="exam_name" type="text" />
+                            </div>
+                        </div>
+                        <!-- /clearfix -->
+
+                        <div class="clearfix">
+                            <label for="exam_concentration">Concentration: </label>
+
+                            <div class="input">
+                                <input class="large" id="exam_concentration" name="exam_concentration" type="text" />
+                            </div>
+                        </div>
+                        <!-- /clearfix -->
+
+                        <input type="submit" class="btn primary" id="add-exam" value="Save changes"/>
+                        <button type="reset" class="btn" id="#cancel-button">Cancel</button>
+
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+
+    <link rel="stylesheet" href="/css/datepicker/Aristo.css">
+	<script type="text/javascript" src="/js/datepicker/jquery.ui.core.js"></script>
+	<script type="text/javascript" src="/js/datepicker/jquery.ui.widget.js"></script>
+	<script type="text/javascript" src="/js/datepicker/jquery.ui.datepicker.js"></script>
+
+    <script type="text/javascript">
+
+            var recordCount = 0;
+
+            $(function(){
+                $('#add-exam').live('click', function(){
+                    ++recordCount;
+                    var tableRow =
+                            $("<tr></tr>").attr('id', '' + recordCount)
+                                    .append($("<td></td>").html(recordCount))
+                                    .append($("<td></td>").html($('#exam_name').val()))
+                                    .append($("<td></td>").html($('#exam_concentration').val()))
+                                    .append($("<td></td>")
+                                        .append($("<button></button>").attr('class', 'btn').html('Edit'))
+                                        .append($("<button></button>").attr('class', 'btn danger').html('Delete')))
+
+                    if (recordCount == 1) {
+                        $('#exam-records').html(tableRow);
+                    } else {
+                        $('#exam-records').append(tableRow);
+                    }
+
+                    $('#exam_name').val('');
+                    $('#exam_concentration').val('');
+                    $('#close-form').trigger('click');
+
+                    return false;
+                });
+
+                $(function() {
+                    $( "#start_date" ).datepicker({
+                        altField: "#alternate",
+                        altFormat: "DD, d MM, yy"
+                    });
+
+                    $( "#end_date" ).datepicker({
+                        altField: "#alternate",
+                        altFormat: "DD, d MM, yy"
+                    });
+                });
+            });
+
+        </script>
+

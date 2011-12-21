@@ -1,0 +1,80 @@
+
+            <h1 style="float:left">Exam Plans</h1>
+
+            <div style="float:right">
+                <a class="btn success" href="/exam/exam-plans/add">New Exam Plan</a>
+            </div>
+
+            <table id="draft-exams" class="zebra-striped">
+
+                <thead>
+                    <tr>
+                        <th width="10%">Serial</th>
+                        <th width="20%">Title</th>
+                        <th width="10%"># of Exams</th>
+                        <th width="10%">Total Concentration</th>
+                        <th width="20%">Duration</th>
+                        <th width="15%">Last Modified</th>
+                        <th width="25%">&nbsp;</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td class="centered">1</td>
+                        <td>CSE</td>
+                        <td class="centered">5</td>
+                        <td class="centered">90%</td>
+                        <td class="centered">1st Oct, 2011 ~ 30th Apr, 2012</td>
+                        <td class="centered">10th Oct, 2011</td>
+                        <td class="centered">
+                            <button class="btn">Edit</button>
+                            <button class="btn danger">Delete</button>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="centered">1</td>
+                        <td>EEE</td>
+                        <td class="centered">6</td>
+                        <td class="centered">100%</td>
+                        <td class="centered">1st Jul, 2011 ~ 31th Dec, 2011</td>
+                        <td class="centered">20th Oct, 2011</td>
+                        <td class="centered">
+                            <button class="btn">Edit</button>
+                            <button class="btn danger">Delete</button>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="centered">1</td>
+                        <td>BBA</td>
+                        <td class="centered">4</td>
+                        <td class="centered">75%</td>
+                        <td class="centered">1st Jul, 2011 ~ 31th Dec, 2011</td>
+                        <td class="centered">15th Oct, 2011</td>
+                        <td class="centered">
+                            <button class="btn">Edit</button>
+                            <button class="btn danger">Delete</button>
+                        </td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+            <div id = "exam-plan-modal" class="modal hide fade"> </div>
+
+            <script type="text/javascript">
+
+                $(function(){
+                    $.ajax({
+                        url: '/exam/exam-plans/add',
+                        type: 'POST',
+                        success: function(data){
+                            $('#exam-plan-modal').html(data);
+                        }
+                    });
+                });
+            </script>

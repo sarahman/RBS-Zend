@@ -1,0 +1,63 @@
+
+        <div class="modal-header">
+            <a href="#" class="close" id="close-form">x</a>
+            <h3>New Question</h3>
+        </div>
+
+        <div class="modal-body">
+            <form class="form-stacked" method="POST" action="">
+                <fieldset>
+                    <div class="clearfix">
+                        <label for="title">Title</label>
+                        <div class="input">
+                            <textarea class="xlarge" id="title" name="title" rows="2" cols="1"></textarea>
+                        </div>
+                    </div><!-- /clearfix -->
+
+                    <div class="clearfix">
+                        <label for="explanation">Explanation</label>
+                        <div class="input">
+                            <textarea class="xlarge" id="explanation" name="explanation" rows="2" cols="1"></textarea>
+                        </div>
+                    </div><!-- /clearfix -->
+
+                    <div class="clearfix">
+                        <label for="stackedSelect">Qyestion Type</label>
+                        <div class="input">
+                            <select name="question_type" id="stackedSelect">
+                                <option> -Select One- </option>
+                                <option>MSQ Single</option>
+                                <option>MSQ Multi</option>
+                                <option>varble</option>
+                                <option>Description</option>
+                            </select>
+                        </div>
+                    </div><!-- /clearfix -->
+
+                    <div class="clearfix">
+                        <label id="optionsCheckboxes">List of options</label>
+                        <div class="input">
+                            <ul class="inputs-list">
+                                <li>
+                                    <label>
+                                        <input type="checkbox" name="optionsCheckboxes" value="option1" />
+                                        <span>Option one is this and that&mdash;be sure to include why it’s great</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="checkbox" name="optionsCheckboxes" value="option2" />
+                                        <span>Option two can also be checked and included in form results</span>
+                                    </label>
+                                </li>
+                            </ul>
+                        </div>
+                    </div><!-- /clearfix -->
+                </fieldset>
+
+                <div >
+                    <button type="submit" class="btn primary">Save</button>&nbsp;
+                    <button type="reset" class="btn" id="cancel-button">Cancel</button>
+                </div>
+            </form>
+        </div>

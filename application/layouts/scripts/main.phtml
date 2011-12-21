@@ -1,0 +1,59 @@
+<?php echo $this->doctype() ?>
+<html lang="en">
+    <head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <?php echo $this->headTitle() ?>
+        <?php echo $this->headMeta() ?>
+        <?php echo $this->headLink() ?>
+        <?php echo $this->headScript() ?>
+
+        <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+        <!--[if lt IE 9]>
+        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+        <![endif]-->
+    </head>
+
+    <body>
+
+        <div class="topbar">
+            <div class="topbar-inner">
+                <div class="container-fluid">
+                    <a class="brand" href="/exam/exams">Devnet Exam System</a>
+                    <ul class="nav">
+                        <li><a href="/exam/exam-plans">Exam Plans</a></li>
+                        <li class="active"><a href="/exam/exams">Exams</a></li>
+                        <li><a href="#">Results</a></li>
+                        <li><a href="/exam/categories">Categories</a></li>
+                    </ul>
+
+                    <?php if (empty ($this->userData['username'])): ?>
+
+                    <p class="pull-right">
+                        <a href="#">Login</a>
+                    </p>
+
+                    <?php else: ?>
+
+                    <p class="pull-right">
+                        Logged in as <a href="#"><?php echo $this->userData['username'] ?></a> |
+                        <a href="/user/users/logout">Logout</a>
+                    </p>
+
+                    <?php endif ?>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid">
+
+            <?php echo $this->flashMessenger() ?>
+            <?php echo $this->layout()->content ?>
+
+            <footer style="clear:both">
+                <p>&copy; <?php echo date('Y') ?> Right Brain Solution Ltd.</p>
+            </footer>
+
+        </div> <!-- #content -->
+
+    </body>
+</html>

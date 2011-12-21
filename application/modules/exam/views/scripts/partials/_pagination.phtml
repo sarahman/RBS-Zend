@@ -1,0 +1,42 @@
+<div class="pagination">
+    <ul>
+
+        <!-- First page link -->
+        <?php if (isset($this->previous)): ?>
+        <li class="previous"><?php echo $this->paginator()->buildLink($this->first, 'First', $this->paginatorOptions); ?></li>
+        <?php else: ?>
+        <li class="previous-off"><?php echo 'First'; ?></li>
+        <?php endif; ?>
+
+        <!-- Previous page link -->
+        <?php if (isset($this->previous)): ?>
+        <li class="previous"><?php echo $this->paginator()->buildLink($this->previous, 'Previous', $this->paginatorOptions); ?></li>
+        <?php else: ?>
+        <li class="previous-off"><?php echo 'Previous'; ?></li>
+        <?php endif; ?>
+
+        <!-- Numbered page links -->
+        <?php foreach ($this->pagesInRange as $page): ?>
+        <?php if ($page != $this->current): ?>
+            <li><?php echo $this->paginator()->buildLink($page, $page, $this->paginatorOptions); ?></li>
+            <?php else: ?>
+            <li class="active"><?php echo $page; ?></li>
+            <?php endif; ?>
+        <?php endforeach; ?>
+
+        <!-- Next page link -->
+        <?php if (isset($this->next)): ?>
+        <li class="next"><?php echo $this->paginator()->buildLink($this->next, 'Next', $this->paginatorOptions); ?></li>
+        <?php else: ?>
+        <li class="next-off"><?php echo 'Next'; ?></li>
+        <?php endif; ?>
+
+        <!-- Last page link -->
+        <?php if (isset($this->next)): ?>
+        <li class="next"><?php echo $this->paginator()->buildLink($this->last, 'Last', $this->paginatorOptions); ?></li>
+        <?php else: ?>
+        <li class="next-off"><?php echo 'Last'; ?></li>
+        <?php endif; ?>
+
+    </ul>
+</div>

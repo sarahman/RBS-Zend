@@ -1,0 +1,71 @@
+
+    <h1 style="float:left">CSE-111 &raquo; Question</h1>
+
+    <div style="float:right">
+        <a class="btn success" data-controls-modal="question-modal" data-backdrop="static">New Question</a>
+    </div>
+
+    <table id="draft-exams" class="zebra-striped">
+
+        <thead>
+            <tr>
+                <th width="10%">Serial</th>
+                <th class="centered">Title</th>
+                <th width="10%">Marks</th>
+                <th width="14%">Last Modified</th>
+                <th width="12%">&nbsp;</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            <tr>
+                <td class="centered">1</td>
+                <td class="centered">What is CSE</td>
+                <td class="centered">2</td>
+                <td class="centered">22nd Sept, 2011 3:42pm</td>
+                <td class="centered">
+                    <button class="btn">Edit</button>
+                    <button class="btn danger">Delete</button>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="centered">2</td>
+                <td class="centered">What is the purpose of CSE</td>
+                <td class="centered">5</td>
+                <td class="centered">22nd Sept, 2011 3:42pm</td>
+                <td class="centered">
+                    <button class="btn">Edit</button>
+                    <button class="btn danger">Delete</button>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="centered">3</td>
+                <td class="centered">CSE </td>
+                <td class="centered">1</td>
+                <td class="centered">22nd Sept, 2011 3:42pm</td>
+                <td class="centered">
+                    <button class="btn">Edit</button>
+                    <button class="btn danger">Delete</button>
+                </td>
+            </tr>
+
+        </tbody>
+
+    </table>
+
+    <div id="question-modal" class="modal hide fade"></div>
+
+    <script type="text/javascript">
+        $(function(){
+            $.ajax({
+                url: '/exam/questions/add',
+                type: 'POST',
+                success: function(data){
+                    $('#question-modal').html(data);
+                }
+            });
+        });
+    </script>

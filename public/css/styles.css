@@ -1,0 +1,61 @@
+body {
+    padding-top: 60px;
+}
+
+table th {
+    text-align: center !important;
+}
+
+.centered {
+    text-align: center;
+}
+
+div.well p {
+    margin-bottom: 0;
+}
+
+#login-panel.hero-unit {
+    padding: 30px;
+}
+
+#login-panel.hero-unit label {
+    width: 100px;
+}
+
+#login-panel.hero-unit .input {
+    margin-left: 125px;
+    width: 300px;
+}
+
+#login-panel.hero-unit fieldset legend {
+    padding: 0 0 20px 50px;
+}
+
+#login-panel form {
+    margin-bottom: 10px;
+}
+
+.inline-block {
+    display: inline-block;
+}
+
+.search-form label {
+    float: left;
+    width: 100px;
+}
+
+.search-form .input {
+    margin-left: 110px;
+}
+
+.pagination {
+    font-size: 10px;
+}
+
+.form-stacked {
+    padding-left: 0px;
+}
+
+h6 {
+    text-transform: none;
+}

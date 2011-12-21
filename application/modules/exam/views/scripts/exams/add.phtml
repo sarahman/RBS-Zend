@@ -1,0 +1,47 @@
+
+        <div class="modal-header">
+            <a href="#" class="close" id="close-form">x</a>
+            <h3>New Exam </h3>
+        </div>
+
+        <div class="modal-body">
+            <form class="form-stacked" method="POST" action="">
+                <fieldset>
+                    <div class="clearfix">
+                        <label for="exam_code">Exam Code</label>
+                        <div class="input">
+                            <input type="text" class="span5" id="exam_code" name="exam_code" value="CSE11045"/>
+                        </div>
+                    </div><!-- /clearfix -->
+                    
+                    <div class="clearfix">
+                        <label for="exam_name">Title</label>
+                        <div class="input">
+                            <input type="text" class="span5" id="exam_name" name="exam_name" />
+                        </div>
+                    </div><!-- /clearfix -->
+                    <div class="clearfix">
+                        <label for="stackedSelect">Exam Type</label>
+                        <div class="input">
+                            <select name="role_id" id="stackedSelect">
+                                <option>- Select - </option>
+                                <option>Online</option>
+                                <option>Offline</option>
+                            </select>
+                        </div>
+                    </div><!-- /clearfix -->
+
+                    <div class="clearfix">
+                        <label for="total_questions">Total Questions</label>
+                        <div class="input">
+                            <input type="text" class="span1" id="total_questions" name="total_questions" />
+                        </div>
+                    </div><!-- /clearfix -->
+
+
+                <div>
+                    <button type="submit" class="btn primary">Save</button>&nbsp;
+                    <button type="reset" class="btn" id="cancel-button">Cancel</button>
+                </div>
+            </form>
+        </div>

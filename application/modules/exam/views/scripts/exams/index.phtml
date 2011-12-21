@@ -1,0 +1,214 @@
+<?php $exams = array(
+    array(
+        'exam_code' => 'MSC-301-11',
+        'exam_title' => 'MSC-301 Quiz 1',
+        'total_questions' => '40',
+        'status' => 'Draft'
+    ),
+    array(
+        'exam_code' => 'SSC-201-11',
+        'exam_title' => 'SSC-201 Quiz 4',
+        'total_questions' => '20',
+        'status' => 'Draft'
+    ),
+    array(
+        'exam_code' => 'JSC-301',
+        'exam_title' => 'JSC-301 Quiz 3',
+        'total_questions' => '10',
+        'status' => 'Ongoing'
+    ),
+    array(
+        'exam_code' => 'JSC-301-15',
+        'exam_title' => 'JSC-301-15 Quiz 3',
+        'total_questions' => '5',
+        'status' => 'Ongoing'
+    ),
+    array(
+        'exam_code' => 'CSE-301',
+        'exam_title' => 'CSE-301 Quiz 14',
+        'total_questions' => '40',
+        'status' => 'Ongoing'
+    ),
+    array(
+        'exam_code' => 'CSE-301',
+        'exam_title' => 'CSE-301 Quiz 14',
+        'total_questions' => '40',
+        'status' => 'Ongoing'
+    ),
+    array(
+        'exam_code' => 'EEE-311-1',
+        'exam_title' => 'EEE-311-1 Quiz 14',
+        'total_questions' => '40',
+        'status' => 'Archive'
+    ),
+    array(
+        'exam_code' => 'CE-311-1',
+        'exam_title' => 'CE-311-1 Quiz 14',
+        'total_questions' => '25',
+        'status' => 'Archive'
+    ),
+    array(
+        'exam_code' => 'CE-111-1',
+        'exam_title' => 'CE-111-1 Quiz 4',
+        'total_questions' => '25',
+        'status' => 'Archive'
+    ),
+    array(
+        'exam_code' => 'CE-411-1',
+        'exam_title' => 'CE-411-1 Quiz 14',
+        'total_questions' => '5',
+        'status' => 'Archive'
+    ),
+    array(
+        'exam_code' => 'ARC-301-1',
+        'exam_title' => 'ARC-301-1 Quiz 1',
+        'total_questions' => '5',
+        'status' => 'Archive'
+    ),
+    array(
+        'exam_code' => 'ARC-201-1',
+        'exam_title' => 'ARC-201-1 Quiz 2',
+        'total_questions' => '5',
+        'status' => 'Archive'
+    ),
+    array(
+        'exam_code' => 'ARC-301-1',
+        'exam_title' => 'ARC-301-1 Quiz 3',
+        'total_questions' => '5',
+        'status' => 'Archive'
+    ),
+    array(
+        'exam_code' => 'ARC-301-1',
+        'exam_title' => 'ARC-301-1 Quiz 4',
+        'total_questions' => '5',
+        'status' => 'Archive'
+    ),
+);
+?>
+
+    <h1>Exams</h1>
+    <form class="pull-left search-form" action="">
+
+        <div class="inline-block" style="padding-left: 0">
+            <label for="keywords" style="font-weight: bold;">Keywords:</label>
+            <div class="input">
+                <input class="xlarge" id="keywords" name="keywords" size="30" type="text">
+            </div>
+
+        </div>
+
+        <div class="inline-block">
+            <label for="status" style="font-weight: bold;">Status:</label>
+            <div class="input">
+                <select name="normalSelect" id="status">
+                    <option value="">- SELECT -</option>
+                    <option>Draft</option>
+                    <option>Ongoing</option>
+                    <option>Archive</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="inline-block">
+            <div class="input" style="margin-left: 20px">
+                <input type="submit" class="btn primary" value="Search" />
+            </div>
+        </div>
+
+    </form>
+
+    <div style="float:right">
+        <a class="btn success" data-controls-modal="exam-modal" data-backdrop="static">New Exam</a>
+    </div>
+
+    <table class="zebra-striped">
+
+        <thead>
+            <tr>
+                <th width="10%">Exam Code</th>
+                <th>Title</th>
+                <th width="10%">Total Questions</th>
+                <th width="10%">Status</th>
+                <th width="19%">&nbsp;</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            <?php foreach($exams AS $exam) : ?>
+
+            <?php if (!empty($this->status) && $this->status != $exam['status']) { continue; } ?>
+
+            <tr>
+                <td><?php echo $exam['exam_code'] ?></td>
+                <td><?php echo $exam['exam_title'] ?></td>
+                <td class="centered"><?php echo $exam['total_questions'] ?></td>
+
+                <?php if ($exam['status'] == 'Draft') : ?>
+
+                <td class="centered"><span class="label success"><?php echo $exam['status'] ?></span></td>
+                <td class="centered">
+                    <a href="/exam/questions" class="btn">Questions</a>
+                    <button class="btn">Edit</button>
+                    <button class="btn danger">Delete</button>
+                </td>
+
+                <?php elseif ($exam['status'] == 'Ongoing'): ?>
+
+                <td class="centered"><span class="label important"><?php echo $exam['status'] ?></span></td>
+                <td class="centered">
+                    <a href="/exam/questions" class="btn">Questions</a>
+                </td>
+
+                <?php elseif ($exam['status'] == 'Archive'): ?>
+
+                <td class="centered"><span class="label"><?php echo $exam['status'] ?></span></td>
+                <td class="centered">
+                    <a href="/exam/questions" class="btn">Questions</a>
+                    <button class="btn">Result</button>
+                </td>
+
+                <?php endif ?>
+
+            </tr>
+
+            <?php endforeach ?>
+
+        </tbody>
+
+    </table>
+        
+    <div class="span8">
+      <div class="pagination">
+        <ul>
+          <li class="prev disabled"><a href="#">&larr; Previous</a></li>
+          <li class="active"><a href="#">1</a></li>
+          <li><a href="#">2</a></li>
+          <li><a href="#">3</a></li>
+          <li class="next"><a href="#">Next &rarr;</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div id = "exam-modal" class="modal hide fade"> </div>
+
+    <script type="text/javascript">
+
+        $(function(){
+            $.ajax({
+                url: '/exam/exams/add',
+                type: 'POST',
+                success: function(data){
+                    $('#exam-modal').html(data);
+                }
+            });
+
+            $('.search-form').live('submit', function(){
+                window.location = '/exam/exams/index/status/' + $('#status').val();
+                return false;
+            });
+
+            $("table#exams").tablesorter({ sortList: [[0,1]] });
+        });
+
+    </script>
